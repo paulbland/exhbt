@@ -11,5 +11,11 @@
     "url": "https://git.heroku.com/exhbt.git"
   },
   "author": "Paul Bland paul.bland@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "6.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
