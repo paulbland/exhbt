@@ -22,7 +22,7 @@ app.get('/ig', function (req, res) {
 		// NO CODE
 		//
 
-		res.render('ig', {
+		res.render('login', {
 			clientID 	: process.env.INSTAGRAM_CLIENT_ID,
 			redirectURL : process.env.INSTAGRAM_CALLBACK_URL,
 			code 		: req.query.code
@@ -42,12 +42,9 @@ app.get('/ig', function (req, res) {
 				client_secret 	: process.env.INSTAGRAM_CLIENT_SECRET,
 				grant_type 		: 'authorization_code',
 				redirect_uri 	: process.env.INSTAGRAM_CALLBACK_URL,
-				code : req.query.code
+				code 			: req.query.code
 			}
 		}, function (error, response, body) {
-			//console.log('error:', error); // Print the error if one occurred
-			//console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-			//console.log('body:', body); // Print the HTML for the Google homepage.
 
 			var obj = JSON.parse(body);
 			accessToken = obj.access_token;
@@ -55,7 +52,7 @@ app.get('/ig', function (req, res) {
 			// get this users recent photos
 			request.get('https://api.instagram.com/v1/users/self/media/recent/?access_token='+accessToken, function (error, response, body) {
 				res.render('ig-result', {
-					photos	: JSON.parse(body);
+					photos	: JSON.parse(body)
 				});
 			});
 
