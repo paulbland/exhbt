@@ -1,0 +1,15 @@
+{
+  "name": "exhbt",
+  "version": "1.0.0",
+  "description": "Instagram viewer experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/exhbt.git"
+  },
+  "author": "Paul Bland paul.bland@gmail.com",
+  "license": "ISC"
+}
