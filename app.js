@@ -25,15 +25,25 @@ app.get('/ig', function (req, res) {
 	// If code receid
 	if (req.query.code) {
 
-var myURL = 'https://api.instagram.com/oauth/access_token?client_id='+process.env.INSTAGRAM_CLIENT_ID+'&client_secret='+process.env.INSTAGRAM_CLIENT_SECRET+'&grant_type=authorization_code&redirect_uri='+process.env.INSTAGRAM_CALLBACK_URL+'&code='+req.query.code;
 
-console.log(myURL);
+
 		
-		request(myURL, function (error, response, body) {
-		  console.log('error:', error); // Print the error if one occurred
-		  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-		  console.log('body:', body); // Print the HTML for the Google homepage.
-		});
+		request.post(
+			{
+				url 	: 'https://api.instagram.com/oauth/access_token',
+				form	: {
+					client_id 		: process.env.INSTAGRAM_CLIENT_ID,
+					client_secret 	: process.env.INSTAGRAM_CLIENT_SECRET,
+					grant_type 		: "authorization_code",
+					redirect_uri 	: process.env.INSTAGRAM_CALLBACK_URL,
+					code : req.query.code
+				}
+			}, function (error, response, body) {
+				console.log('error:', error); // Print the error if one occurred
+				console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+				console.log('body:', body); // Print the HTML for the Google homepage.
+			}
+		);
 
 		   
 
