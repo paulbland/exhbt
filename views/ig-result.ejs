@@ -1,0 +1,7 @@
+
+
+<%= photos.data[0].images.standard_resolution.url %>
+
+<% for (i in photos.data) { %>
+	<img src="<%=photos.data[i].images.standard_resolution.url%>">
+<% } %>
