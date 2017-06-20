@@ -1,16 +1,27 @@
 const express = require('express')
 const request = require('request');
+var sslRedirect = require('heroku-ssl-redirect');
+
 const app = express()
 
 var accessToken;
 
 
 
+// enable ssl redirect
+app.use(sslRedirect());
+
 app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-	res.render('index');
+app.get('/aframe', function (req, res) {
+	res.render('aframe');
 })
+app.get('/three', function (req, res) {
+	res.render('three');
+})
+
+
+
 
 
 app.get('/ig', function (req, res) {
