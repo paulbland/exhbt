@@ -16,9 +16,6 @@
   },
   "author": "Paul Bland paul.bland@gmail.com",
   "license": "ISC",
-  "engines": {
-    "node": "6.11.0"
-  },
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.3",
